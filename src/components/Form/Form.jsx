@@ -47,10 +47,8 @@ const Form = ({ submitPropValue }) => {
   const reset = () => {
     setState({ name: '', number: '' });
   };
-
-
-  const nameInputId = useCallback(() => {shortid.generate()},[]);
-  const numberInputId = useCallback(() => {shortid.generate()},[]);
+  const nameInputId = shortid.generate();
+  const numberInputId = shortid.generate();
 
   const { name, number } = state;
   return (
