@@ -6,16 +6,16 @@ import Filter from './Filter';
 import Modal from './Modal';
 import { ModalButton } from './Modal/Modal.styled';
 import { Title } from './Form/Form.styled';
-import { useSelector, useDispatch } from 'react-redux'; //! store subscribe // import dispath
-import { addContact, deleteContact } from 'redux/contacts/contacts-actions'; //! import actions
+import { useSelector, useDispatch } from 'react-redux'; 
+import { addContact, deleteContact } from 'redux/contacts/contacts-actions'; 
 import { setFilter } from 'redux/filter/filter-actions';
 import { getAllContacts } from 'redux/contacts/contacts-selectors';
 import { getFilter } from 'redux/filter/filter-selectors';
 
 const App = () => {
-  const contacts = useSelector(getAllContacts); //! <== part. store subscribe
+  const contacts = useSelector(getAllContacts); 
   const filter = useSelector(getFilter);
-  const dispatch = useDispatch(); //!dispatch will send actions to reducer
+  const dispatch = useDispatch(); 
   const [showModal, setShowModal] = useState(false);
 console.log('contacts', contacts);
   const toggleModal = () => {
@@ -41,7 +41,7 @@ console.log('contacts', contacts);
       return;
     }
 
-    dispatch(addContact({ name, number })); //! give action to disp => reducer
+    dispatch(addContact({ name, number })); 
 
     toggleModal();
   };
