@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Formik } from 'formik';
 import {
@@ -96,8 +96,8 @@ const Form = ({ submitPropValue }) => {
   );
 };
 
-Form.propTypes = {
-  submitPropValue: PropTypes.func.isRequired,
-};
+// Form.propTypes = {
+//   submitPropValue: PropTypes.func.isRequired,
+// };
 
 export default Form;

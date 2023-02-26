@@ -7,17 +7,19 @@ import Modal from './Modal';
 import { ModalButton } from './Modal/Modal.styled';
 import { Title } from './Form/Form.styled';
 import { useSelector, useDispatch } from 'react-redux'; 
-import { addContact, deleteContact } from 'redux/contacts/contacts-actions'; 
-import { setFilter } from 'redux/filter/filter-actions';
+import { addContact, deleteContact } from 'redux/contacts/contacts-slice';
+import { setFilter } from 'redux/filter/filter-slice';
 import { getAllContacts } from 'redux/contacts/contacts-selectors';
 import { getFilter } from 'redux/filter/filter-selectors';
+
+
 
 const App = () => {
   const contacts = useSelector(getAllContacts); 
   const filter = useSelector(getFilter);
   const dispatch = useDispatch(); 
   const [showModal, setShowModal] = useState(false);
-console.log('contacts', contacts);
+
   const toggleModal = () => {
     if (showModal) {
       setShowModal(false);
@@ -63,6 +65,9 @@ console.log('contacts', contacts);
     contact.name.toLowerCase().includes(lowerCasedFilter)
   );
 };
+
+
+
 
   return (
     <Box>

@@ -5,7 +5,7 @@ import {
   ContactData,
   ListTitle,
 } from './Contacts.styled';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Contacts = ({ contacts, onDeleteContact }) => {
 //   console.log(contacts);
@@ -32,15 +32,15 @@ const Contacts = ({ contacts, onDeleteContact }) => {
 };
 
 
-Contacts.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  onDeleteContact: PropTypes.func.isRequired,
-};
+// Contacts.propTypes = {
+//   contacts: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string.isRequired,
+//       name: PropTypes.string.isRequired,
+//       number: PropTypes.string.isRequired,
+//     })
+//   ).isRequired,
+//   onDeleteContact: PropTypes.func.isRequired,
+// };
 
 export default Contacts;

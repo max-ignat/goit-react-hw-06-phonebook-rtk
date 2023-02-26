@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // import { createPortal } from 'react-dom';
 import { BackdropDiv, ContentDiv } from './Modal.styled';
 
@@ -36,9 +36,9 @@ const Modal = ({ onClose, children }) => {
   );
 };
 
-Modal.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
-};
+// Modal.propTypes = {
+//   onClose: PropTypes.func.isRequired,
+//   children: PropTypes.node.isRequired,
+// };
 
 export default Modal;
