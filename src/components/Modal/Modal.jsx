@@ -1,40 +1,44 @@
-import React, { PureComponent } from 'react';
+import { useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types';
 // import { createPortal } from 'react-dom';
 import { BackdropDiv, ContentDiv } from './Modal.styled';
 
 // const modalRoot = document.querySelector('#modal-root');
 
-export default class Modal extends PureComponent {
-  componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyDown);
-  }
+const Modal = ({ onClose, children }) => {
+ const handleKeyDown = useCallback(
+   e => {
+     if (e.code === 'Escape') {
+       onClose();
+     }
+   },
+   [onClose]
+ );
 
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown);
-  }
-
-  handleKeyDown = e => {
-    if (e.code === 'Escape') {
-      this.props.onClose();
-      // console.log('Escape pressed');
+  const handleBackdropClick = e => {
+    if (e.currentTarget === e.target) {
+      onClose();
     }
   };
-    handleBackdropClick = e => {
-        if (e.currentTarget === e.target) {
-            this.props.onClose();
-      }  }
-  render() {
-    return (
-      <BackdropDiv onClick={this.handleBackdropClick}>
-        <ContentDiv>{this.props.children}</ContentDiv>
-      </BackdropDiv>
-    );
 
-    // return createPortal(
-    //   <BackdropDiv>
-    //     <ContentDiv>{this.props.children}</ContentDiv>
-    //   </BackdropDiv>,
-    //   modalRoot
-    // );
-  }
-}
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
+  
+
+  return (
+    <BackdropDiv onClick={handleBackdropClick}>
+      <ContentDiv>{children}</ContentDiv>
+    </BackdropDiv>
+  );
+};
+
+Modal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
+export default Modal;

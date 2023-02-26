@@ -86,5 +86,4 @@ console.log('contacts', contacts);
     </Box>
   );
 };
-
 export default App;
