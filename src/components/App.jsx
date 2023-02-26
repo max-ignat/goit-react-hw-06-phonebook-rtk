@@ -49,7 +49,6 @@ const App = () => {
   };
 
   const handleDeleteContact = id => {
-    
     dispatch(deleteContact(id));
     console.log('deleted');
   };

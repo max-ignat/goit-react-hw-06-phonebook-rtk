@@ -19,7 +19,7 @@ const contactsSlice = createSlice({
         };
       },
     },
-    deleteBook: (state, { payload }) =>
+    deleteContact: (state, { payload }) =>
       state.filter(({ id }) => id !== payload),
   },
 });
